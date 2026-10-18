@@ -10,7 +10,7 @@
 ## 진행 상태
 
 - 0단계 작업 상태 보호: 완료 (2026-10-18)
-- 1단계 렌더러 최소 검증: 대기
+- 1단계 렌더러 최소 검증: 완료 (2026-10-18)
 - 2~6단계: 대기
 
 0단계 기준선:
@@ -19,6 +19,13 @@
 - 구현 코드는 아직 없으며 `main`과 `origin/main`의 커밋 기준선은 같다.
 - 기존 작업은 한글 문서와 프로젝트 지침, Unity 6.3/URP 설정 자동 마이그레이션으로 구분된다.
 - 자동 마이그레이션 파일은 `UniversalRP.asset`, `ShaderGraphSettings.asset`, `URPProjectSettings.asset`, `PackageManagerSettings.asset`이다. 구현 중 이 변경을 되돌리거나 덮어쓰지 않는다.
+
+1단계 자동 검증 결과:
+
+- 현재 URP 2D Renderer와 `Universal Render Pipeline/Unlit` 셰이더 조합에서 높이 메시가 카메라에 정상 렌더링됐다.
+- 512 x 512 자동 캡처에서 배경과 다른 픽셀 23,436개를 확인했다.
+- 별도의 Universal Renderer 추가는 현재 필요하지 않다.
+- 사용자가 `RendererValidation` 씬의 Scene 뷰에서 메시가 정상적으로 솟아 있고 회전 표시되는 것을 확인했다.
 
 ## 구현 원칙
 
