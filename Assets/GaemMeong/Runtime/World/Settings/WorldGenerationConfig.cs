@@ -1,4 +1,5 @@
 using System;
+using GaemMeong.World.Generation;
 
 namespace GaemMeong.World.Settings
 {
@@ -6,6 +7,7 @@ namespace GaemMeong.World.Settings
     {
         private WorldGenerationConfig(
             string seedText,
+            ulong worldSeed,
             int worldWidth,
             int worldLength,
             int chunkSize,
@@ -14,6 +16,7 @@ namespace GaemMeong.World.Settings
             float heightScale)
         {
             SeedText = seedText;
+            WorldSeed = worldSeed;
             WorldWidth = worldWidth;
             WorldLength = worldLength;
             ChunkSize = chunkSize;
@@ -23,6 +26,8 @@ namespace GaemMeong.World.Settings
         }
 
         public string SeedText { get; }
+
+        public ulong WorldSeed { get; }
 
         public int WorldWidth { get; }
 
@@ -101,6 +106,7 @@ namespace GaemMeong.World.Settings
 
             return new WorldGenerationConfig(
                 seedText.Trim(),
+                WorldSeedHasher.Parse(seedText),
                 worldWidth,
                 worldLength,
                 chunkSize,
